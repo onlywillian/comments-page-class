@@ -1,0 +1,17 @@
+.head {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 50px;
+}
+.head span {
+    margin: 0 20px;
+    cursor: pointer;
+    transition: all .5s;
+    padding: 10px;
+}
+.head span:hover {
+    color: var(--font-alternative-color);
+} 
+.head span:first-child {
+    color: var(--font-alternative-color);
+}

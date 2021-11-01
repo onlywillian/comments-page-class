@@ -1,0 +1,8 @@
+.global-button {
+    background: var(--global-gradient);
+    border: none;
+    padding: 15px 2.5vw;
+    color: white;
+    font-size: calc(2pt + .8vw);
+    cursor: pointer;
+}

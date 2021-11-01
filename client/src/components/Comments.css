@@ -1,0 +1,35 @@
+.comments {
+    background: var(--global-bg-color);
+    min-height: 100vh;
+}
+.comments-header {
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.356);
+    display: flex;
+    justify-content: space-between;
+}
+.comments-buttons {
+    font-size: max(20px, 2vw);
+    cursor: pointer;
+    padding: 10px;
+}
+.comments-buttons:hover {
+    background-color: rgba(255, 255, 255, 0.287);
+}
+/* Onde ficam os comentários */
+.comments-area {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    margin-top: 30px;
+    justify-items: center;
+}
+.comment-block {
+    background: var(--global-bg-second-color);
+    width: 80%;
+    min-width: 240px;
+
+    margin-bottom: 50px;
+    min-height: 200px;
+    padding: 10px;
+}

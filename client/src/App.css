@@ -1,0 +1,12 @@
+:root {
+    --global-bg-color: #020206;
+    --global-bg-second-color: #222a36;
+    --global-lite-color: #303CB4;
+    --font-alternative-color: #5A88EE;
+    --global-gradient: linear-gradient(to right,#5A88EE, #7b34bd);
+}
+
+.app {
+    background: var(--global-bg-color);
+    padding-top: 10px;
+}
