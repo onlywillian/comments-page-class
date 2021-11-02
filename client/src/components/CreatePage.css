@@ -1,0 +1,35 @@
+.create-page-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(5, 5, 5, 0.726);
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.create-page {
+    background: var(--global-bg-second-color);
+    width: 60vw;
+    height: 60vh;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
+.create-page input, .create-page label, .create-page button {
+    margin-bottom: 20px;
+    font-size: calc(3pt + 1vw);
+}
+.create-page input {
+    padding: 10px;
+    outline: 0;
+}
+.create-page div {
+    display: flex;
+    justify-content: space-around;
+}
+
+@media (max-width: 430px) {
+    .create-page input, .create-page label, .create-page button {
+        font-size: calc(6pt + 1vw);
+    }
+}

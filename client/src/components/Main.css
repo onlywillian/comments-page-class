@@ -1,14 +1,16 @@
 .main {
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    padding-left: 50px;
+    justify-content: space-around;
     margin-top: 100px;
 }
 .main p {
     font-size: calc(30pt + 2vw);
     font-weight: 700;
     margin-bottom: 20px;
+}
+.left-content {
+    width: 35vw;
 }
 .main-desc {
     font-size: calc(1pt + 1.2vw);
@@ -17,4 +19,28 @@
 }
 .main img {
     height: 35vw;
+}
+
+@media (max-width: 770px) {
+    .main {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-top: 20px;
+    }
+    .left-content {
+        width: 50vw;
+    }
+    .main img {
+        margin-top: 50px;
+    }
+}
+@media (max-width: 430px) {
+    .left-content {
+        width: 100vw;
+    }
+    .main-desc, .main button {
+        font-size: 8pt;
+    }
 }

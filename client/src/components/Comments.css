@@ -18,18 +18,14 @@
 }
 /* Onde ficam os comentários */
 .comments-area {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    margin-top: 30px;
-    justify-items: center;
+    margin: 0 20px;
+    padding: 30px 0;
+    column-count: 2;
+    column-gap: 10px;
 }
-.comment-block {
-    background: var(--global-bg-second-color);
-    width: 80%;
-    min-width: 240px;
 
-    margin-bottom: 50px;
-    min-height: 200px;
-    padding: 10px;
+@media (max-width: 430px) {
+    .comments-area {
+        column-count: 1;
+    }
 }
