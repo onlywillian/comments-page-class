@@ -14,8 +14,8 @@ const Commentary = () => {
     const [comments, setComments] = useState([
         {
             id: 1,
-            title: "O Willian é muito lindo",
-            content: "Cara tu viu como ele é lindo? E ainda faz programa.",
+            title: "Titulo qualquer",
+            content: "Comentário teste",
             author: "Anônimo",
         },
     ]);
