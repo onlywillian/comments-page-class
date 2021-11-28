@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { TiArrowBack, TiPlus } from 'react-icons/ti';
 
@@ -10,15 +11,16 @@ import CreatePage from './CreatePage';
 const Commentary = () => {
     const history = useHistory();
     const [createDisplay, setCreateDisplay] = useState(false);
+    
+    const [comments, setComments] = useState([]);
 
-    const [comments, setComments] = useState([
-        {
-            id: 1,
-            title: "Titulo qualquer",
-            content: "Comentário teste",
-            author: "Anônimo",
-        },
-    ]);
+    useEffect(async () => {
+        const data = await axios.get("https://comments-backend-1c.herokuapp.com/api/v1/comments");
+
+        setComments(data.data.data);
+
+        console.log(data);
+    }, [comments]);
 
     function handleBackClick() {
         history.goBack();
