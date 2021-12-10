@@ -1,24 +1,28 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 import './CreatePage.css';
 
 import Button from './Button';
 
 const CreatePage = ({ on, setOn, com, setCom }) => {
-    const [title, setTitle] = useState("");
-    const [content, setContent] = useState("");
-    const [author, setAuthor] = useState("");
+    const [newComment, setNewComment] = useState({
+        title: "ajskfjakf",
+        content: "asfjkalfjhaskf",
+        author: "willllll"
+    });
 
     function handleSendClick() {
-        const newComments = {
-            id: Math.random() * 10,
-            title: title,
-            content: content,
-            author: author
-        }
-
-        setCom([...com, newComments]);
         setOn(false);
+
+        console.log(newComment);
+
+        async function fetchData() {
+            await axios.post("https://comments-backend-1c.herokuapp.com/api/v1/comments", newComment)
+                .then(data => console.log(data.data))
+                .catch()
+        }
+        fetchData();
     }
 
     function handleCancelClick() {
@@ -29,11 +33,11 @@ const CreatePage = ({ on, setOn, com, setCom }) => {
         <div style={on? {display: 'flex'} : {display: 'none'}} className="create-page-container">
             <div className="create-page">
                 <label htmlFor="title">Titulo: </label> 
-                <input id="title" type="text" onChange={(e) => setTitle(e.target.value)} placeholder="Sem titulo"/>
+                <input id="title" type="text" onChange={(e) => setNewComment({...newComment, title: e.target.value})} placeholder="Sem titulo"/>
                 <label htmlFor="content">Conteudo: </label>
-                <input id="content" type="text" onChange={(e) => setContent(e.target.value)} placeholder="O texto fica aqui"/>
+                <input id="content" type="text" onChange={(e) => setNewComment({...newComment, content: e.target.value})} placeholder="O texto fica aqui"/>
                 <label htmlFor="author">Autor: </label>
-                <input id="author" type="text" onChange={(e) => setAuthor(e.target.value)} placeholder="Anônimo"/>
+                <input id="author" type="text" onChange={(e) => setNewComment({...newComment, author: e.target.value})} placeholder="Anônimo"/>
 
                 <div>
                     <Button onclick={handleCancelClick}>Cancelar</Button>

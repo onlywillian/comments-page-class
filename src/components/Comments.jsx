@@ -14,12 +14,19 @@ const Commentary = () => {
     
     const [comments, setComments] = useState([]);
 
-    useEffect(async () => {
-        const data = await axios.get("https://comments-backend-1c.herokuapp.com/api/v1/comments");
+    useEffect(() => {
+        async function fetchData() {
+            const data = await axios.get("https://comments-backend-1c.herokuapp.com/api/v1/comments");
+    
+            setComments(data.data.data);
+    
+            console.log(data);
+        }
+        fetchData();
+    }, []);
 
-        setComments(data.data.data);
-
-        console.log(data);
+    useEffect(() => {
+        console.log("Hello Hello");
     }, [comments]);
 
     function handleBackClick() {
@@ -41,7 +48,7 @@ const Commentary = () => {
 
             <div className="comments-area">
                 {comments.map(comment => (
-                    <Comment key={comment.id} title={comment.title} 
+                    <Comment key={comment._id} title={comment.title} 
                             content={comment.content} author={comment.author}/>
                 ))}
             </div>
